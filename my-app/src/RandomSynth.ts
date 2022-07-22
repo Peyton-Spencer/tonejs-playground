@@ -2,7 +2,10 @@ import * as Tone  from "tone";
 
 export default class RandomSynth {
     readonly synth: Tone.Synth<Tone.SynthOptions>
+    pitchSet: string[]
     constructor() {
+        //default pitch set
+        this.pitchSet = ["B", "C", "D", "E", "G"]
         this.synth = new Tone.Synth().toDestination()
     }
 
@@ -10,8 +13,10 @@ export default class RandomSynth {
         this.synth.triggerAttackRelease(`${note}4`, "8n")
     }
 
-    playNoteRandomOctave(note: string) {
+    playRandomNoteFromPitchSet() {
         const oct = Math.floor((Math.random() * 5) + 1)
+        const note = this.pitchSet.at(Math.floor(Math.random() * this.pitchSet.length) - 1)
+        
         this.synth.triggerAttackRelease(`${note}${oct}`, "16n")
     }
 
@@ -19,7 +24,7 @@ export default class RandomSynth {
         Tone.Transport.scheduleRepeat((time: number) => {
             console.log(`transport time: ${time}`)
             
-            this.playNoteRandomOctave("A")
+            this.playRandomNoteFromPitchSet()
         }, "8n")
 
         Tone.Transport.start()
