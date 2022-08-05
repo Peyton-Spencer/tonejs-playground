@@ -1,5 +1,5 @@
 Ref: https://tonejs.github.io/
-# Introduction to #ToneJS
+# Introduction to ToneJS
 - to install:
 ```bash
 brew install yarn
