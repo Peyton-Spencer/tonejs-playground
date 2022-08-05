@@ -13,7 +13,10 @@ import * as Tone from 'tone';
 ```
 
 # Playground
-1) Clone: https://github.com/Peyton-Spencer/tonejs-playground
+1) Clone: 
+```bash
+git clone git@github.com:Peyton-Spencer/tonejs-playground.git
+```
 
 2) Run the following to install:
 ```bash
