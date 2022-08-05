@@ -1,7 +1,8 @@
 import * as Tone  from "tone";
 
 export default class RandomSynth {
-    readonly synth: Tone.Synth<Tone.SynthOptions>
+    readonly synth: Tone.Synth<Tone.SynthOptions> // can add 'any' type to make agnostic, can use pipes to make multiple types
+
     pitchSet: string[]
     constructor() {
         //default pitch set
@@ -31,6 +32,7 @@ export default class RandomSynth {
     }
 
     stop() {
+        Tone.Transport.cancel()
         Tone.Transport.stop()
     }
 }
